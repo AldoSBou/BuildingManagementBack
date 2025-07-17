@@ -1,4 +1,8 @@
 package com.buildingmanagement.buildingmanagementbackend.common.enums;
 
-public class UnitType {
+public enum UnitType {
+    APARTMENT,
+    PARKING,
+    STORAGE,
+    COMMERCIAL
 }

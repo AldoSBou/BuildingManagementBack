@@ -1,4 +1,54 @@
 package com.buildingmanagement.buildingmanagementbackend.shared.dto;
 
-public class ApiResponse {
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ApiResponse<T> {
+    private boolean success;
+    private String message;
+    private T data;
+    private Object errors;
+    private Integer statusCode;
+
+    public static <T> ApiResponse<T> success(T data) {
+        return ApiResponse.<T>builder()
+                .success(true)
+                .data(data)
+                .statusCode(200)
+                .build();
+    }
+
+    public static <T> ApiResponse<T> success(T data, String message) {
+        return ApiResponse.<T>builder()
+                .success(true)
+                .message(message)
+                .data(data)
+                .statusCode(200)
+                .build();
+    }
+
+    public static <T> ApiResponse<T> error(String message) {
+        return ApiResponse.<T>builder()
+                .success(false)
+                .message(message)
+                .statusCode(400)
+                .build();
+    }
+
+    public static <T> ApiResponse<T> error(String message, Object errors) {
+        return ApiResponse.<T>builder()
+                .success(false)
+                .message(message)
+                .errors(errors)
+                .statusCode(400)
+                .build();
+    }
 }
