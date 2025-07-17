@@ -1,0 +1,30 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Freekmans32!
+      MYSQL_DATABASE: building_management
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Freekmans32!
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - DB_HOST=mysql
+      - DB_USERNAME=building_user
+      - DB_PASSWORD=building_password
+
+volumes:
+  mysql_data:

@@ -1,4 +1,6 @@
 package com.buildingmanagement.buildingmanagementbackend.common.enums;
 
-public class ExpenseCategory {
+public enum ExpenseCategory {
+    CLEANING,
+    SECURITY
 }
