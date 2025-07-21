@@ -3,23 +3,16 @@ package com.buildingmanagement.buildingmanagementbackend.modules.building.dto;
 import lombok.Builder;
 import lombok.Data;
 
-import lombok.Builder;
-import lombok.Data;
-
 import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class BuildingResponse {
+public class BuildingListResponse {
 
     private Long id;
     private String name;
     private String address;
-    private String description;
     private Integer totalUnits;
-    private Long adminUserId;
-    private String adminName; // AGREGADO
+    private String adminName;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
-
