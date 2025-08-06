@@ -4,23 +4,15 @@ import com.buildingmanagement.buildingmanagementbackend.common.enums.UnitType;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @Builder
-public class UnitResponse {
+public class UnitListResponse {
 
     private Long id;
-    private Long buildingId;
-    private String buildingName;
     private String unitNumber;
     private UnitType unitType;
     private Double area;
-    private Long ownerId;
     private String ownerName;
-    private Long tenantId;
     private String tenantName;
     private Boolean isActive;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
