@@ -32,7 +32,7 @@ public class Unit extends Auditable {
     @Column(name = "unit_type", nullable = false)
     private UnitType unitType;
 
-    @Column(precision = 8, scale = 2)
+    @Column(precision = 8)
     private Double area;
 
     @Column(name = "owner_id")
